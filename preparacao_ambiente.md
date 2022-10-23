@@ -44,8 +44,8 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
-### 6 - Reiniciar a vmbox
-Reinicie a maquina virtual para evitar erros na conexão com o banco de dados. 
+### 6 - Reiniciar a vmbox se necessário
+Se o Laravel exibir erros de conexão com o banco de dados tente reiniciar a maquina virtual, pois um período de ociosidade na vm pode cortar a conexão com a internet. 
 
 ### 7 - Rodar a aplicação 
 Executar o comando abaixo na raiz do diretório do projeto criado.
