@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Http\Request;
+
+use App\Http\Controllers\TriagemController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/triagem',TriagemController::class);
+Route::get('/unidades',[TriagemController::class,'unidades'])->name('triagem.unidades');
+
+//Route::get('/triagem',[TriagemController::class,'index'])->name('triagem');
+//Route::get('/unidades','App\Http\Controllers\TriagemController@unidades')->name('triagem.unidades');
