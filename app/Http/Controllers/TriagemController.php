@@ -17,8 +17,11 @@ class TriagemController extends Controller
      */
     public function index()
     {
-        $consul = DB::table('chc_pcc')->where('pcc_espsim','like','al%')->get();
-        return view('unidades.index')->with('unidades',$consul);
+        $consul = DB::table('chc_pcc')->whereIn('pcc_codigo',[600431,600423,600385,600148])->get();
+        return view('setores.index')->with('setores',$consul);
+        
+        /*$consul = DB::table('chc_pcc')->where('pcc_espsim','like','al%')->get();
+        return view('unidades.index')->with('unidades',$consul);*/
     }
 
     public function servicos($unid)
