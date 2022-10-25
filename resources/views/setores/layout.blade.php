@@ -22,25 +22,11 @@
     <!-- JavaScript -->
     <script>
       // Imprime senha  
-      function Imprime(setor, tipo){
-        var data = new Date().toLocaleDateString();
-        var hora = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
-
-        document.write('<div style="text-align: center; font-family: Arial, Helvetica, sans-serif;">')
-        document.write('<h5>'+setor+'</h5>')
-        document.write(tipo)
-        document.write('<br>')
-        document.write('<h1>ABC002</h1>')
-        document.write('<br><br>')
-        document.write(data)
-        document.write('<br>')
-        document.write('Hora de chegada '+hora)
-        document.write('<br>')
-        document.write('(Horário local)')
-        document.write('</div>')
-
-        window.print()
-        window.location.href = "{{route('setores')}}"
+      function ImprimeN(){
+        window.location.href = '{{route("senha","N")}}'
+      }
+      function ImprimeP(){
+        window.location.href = '{{route("senha","P")}}'
       }
     </script>
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->

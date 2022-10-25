@@ -30,6 +30,16 @@ class TriagemController extends Controller
         return view('servicos.index')->with(['servicos' => $consul, 'unid' => $unid]);
     }
 
+    public function senha($priori)
+    {
+        $insert = DB::table('gsc_senhas')->insertGetId([
+            'sen_codigo' => $priori,
+            'sen_datini' => date('Y-m-d'),
+            'sen_horini' => date('H:i')
+        ]);
+        echo $insert;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

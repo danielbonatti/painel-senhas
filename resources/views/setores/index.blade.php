@@ -14,8 +14,8 @@
                                     <div class="card text-center">
                                         <div class="card-body">
                                             <h5 class="card-title">{{$setor->pcc_especi}}</h5>
-                                            <a href="#" onclick="Imprime('{{$setor->pcc_especi}}', 'Normal')" class="btn btn-primary">Normal</a>
-                                            <a href="#" onclick="Imprime('{{$setor->pcc_especi}}', 'Prioridade')" class="btn btn-danger">Prioridade</a> 
+                                            <a href="#" onclick="ImprimeN()" class="btn btn-primary">Normal</a>
+                                            <a href="#" onclick="ImprimeP()" class="btn btn-danger">Prioridade</a> 
                                         </div>
                                     </div>
                                 </div>
