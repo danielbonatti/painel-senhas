@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <div class="row">
                             @foreach($unidades as $unidade)
-                                <a href="{{route('servicos')}}" type="button" class="btn btn-primary btn-lg btn-block">{{$loop->index}} - {{$unidade->pcc_espsim}}</a>
+                                <a href="{{route('servicos',$unidade->pcc_espsim)}}" type="button" class="btn btn-primary btn-lg btn-block">{{$loop->index}} - {{$unidade->pcc_espsim}}</a>
                             @endforeach
                         </div>
                     </div>

@@ -21,8 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/unidades',TriagemController::class);
-Route::get('/servicos',[TriagemController::class,'servicos'])->name('servicos');
+//Route::resource('/unidades',TriagemController::class);
+Route::get('/unidades',[TriagemController::class,'index'])->name('unidades');
+Route::get('/servicos/{unid}',[TriagemController::class,'servicos'])->name('servicos');
 
 //Route::get('/triagem',[TriagemController::class,'index'])->name('triagem');
 //Route::get('/unidades','App\Http\Controllers\TriagemController@unidades')->name('triagem.unidades');
