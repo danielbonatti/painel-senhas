@@ -30,14 +30,18 @@ class TriagemController extends Controller
         return view('servicos.index')->with(['servicos' => $consul, 'unid' => $unid]);
     }
 
-    public function senha($priori)
+    public function senha($tipate)
     {
+        $consul = DB::table('gsc_senhas')->whereRaw('sen_datini = "'.date('Y-m-d').'" and sen_tipate="'.$tipate.'"')->count();
+        $consul = $tipate.str_pad($consul+1,4,0,STR_PAD_LEFT);
         $insert = DB::table('gsc_senhas')->insertGetId([
-            'sen_codigo' => $priori,
+            'sen_codigo' => $consul,
             'sen_datini' => date('Y-m-d'),
-            'sen_horini' => date('H:i')
+            'sen_horini' => date('H:i'),
+            'sen_atiset' => '01',
+            'sen_tipate' => $tipate
         ]);
-        echo $insert;
+        return view('setores.senha')->with('senha',$consul);
     }
 
     /**

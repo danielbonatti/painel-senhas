@@ -17,17 +17,15 @@
 
     <div class="container">
       @yield('content')
-  </div>
+    </div>
 
     <!-- JavaScript -->
     <script>
       // Imprime senha  
-      function ImprimeN(){
-        window.location.href = '{{route("senha","N")}}'
+      function Imprime(tipate){
+        window.location.href = '{{URL::to("/senha")}}/'+tipate
       }
-      function ImprimeP(){
-        window.location.href = '{{route("senha","P")}}'
-      }
+      //window.location.href = '{{route("senha","P")}}'
     </script>
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

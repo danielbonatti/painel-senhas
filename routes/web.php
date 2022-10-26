@@ -26,7 +26,7 @@ Route::get('/unidades',[TriagemController::class,'index'])->name('unidades');
 Route::get('/servicos/{unid}',[TriagemController::class,'servicos'])->name('servicos');
 
 Route::get('/setores',[TriagemController::class,'index'])->name('setores');
-Route::get('/senha/{priori}',[TriagemController::class,'senha'])->name('senha');
+Route::get('/senha/{tipate}',[TriagemController::class,'senha'])->name('senha');
 
 //Route::get('/triagem',[TriagemController::class,'index'])->name('triagem');
 //Route::get('/unidades','App\Http\Controllers\TriagemController@unidades')->name('triagem.unidades');
