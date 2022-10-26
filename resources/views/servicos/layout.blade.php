@@ -17,7 +17,7 @@
 
     <div class="container">
       @yield('content')
-  </div>
+    </div>
 
     <!-- JavaScript -->
     <!--<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>-->
