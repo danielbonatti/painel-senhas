@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="h-100">
   <head>
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
@@ -11,13 +11,33 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+      .container {
+        width: auto;
+        /*max-width: 680px;*/
+        padding: 0 15px;
+      }
+
+      .footer {
+        background-color: #f5f5f5;
+      }
+    </style>
+
     <title>Setores</title>
   </head>
-  <body>
+  <body class="d-flex flex-column h-100">
 
-    <div class="container">
-      @yield('content')
-    </div>
+    <main role="main" class="flex-shrink-0">
+      <div class="container">
+        @yield('content')
+      </div>
+    </main>
+    
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <img src="{{ asset('images/logo.png') }}" width="280" class="img-fluid" alt="Hsist">
+      </div>
+    </footer>
 
     <!-- JavaScript -->
     <script>

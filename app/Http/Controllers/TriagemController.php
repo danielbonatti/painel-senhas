@@ -19,15 +19,6 @@ class TriagemController extends Controller
     {
         $consul = DB::table('chc_pcc')->whereIn('pcc_codigo',[600431,600423,600385,600148])->get();
         return view('setores.index')->with('setores',$consul);
-        
-        /*$consul = DB::table('chc_pcc')->where('pcc_espsim','like','al%')->get();
-        return view('unidades.index')->with('unidades',$consul);*/
-    }
-
-    public function servicos($unid)
-    {
-        $consul = DB::table('gse_tab_atiset')->whereIn('tab_atiset',[12,22,51,02])->get();
-        return view('servicos.index')->with(['servicos' => $consul, 'unid' => $unid]);
     }
 
     public function senha(Request $request)
