@@ -42,10 +42,10 @@ npm run dev
 npm run production
 ```
 
-## 4 - Reiniciar a vmbox se necessário
+## 5 - Reiniciar a vmbox se necessário
 Se o Laravel exibir erros de conexão com o banco de dados tente reiniciar a maquina virtual, pois um período de ociosidade na vm pode cortar a conexão com a internet. 
 
-## 5 - Rodar a aplicação 
+## 6 - Rodar a aplicação 
 Executar o comando abaixo na raiz do diretório do projeto criado.
 ```
 php artisan serve
