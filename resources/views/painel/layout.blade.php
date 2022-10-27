@@ -17,15 +17,13 @@
       }
     </style>
 
-    <title>Setores</title>
+    <title>Painel</title>
   </head>
   <body class="d-flex flex-column h-100">
 
-    <main role="main" class="flex-shrink-0">
-      <div class="container">
-        @yield('content')
-      </div>
-    </main>
+    <div class="container-fluid h-100">
+      @yield('content')
+    </div>
     
     <footer class="footer mt-auto py-3">
       <div class="container-fluid">
@@ -35,11 +33,7 @@
 
     <!-- JavaScript -->
     <script>
-      // Imprime senha  
-      function Imprime(arr){
-        window.location.href = '{{URL::to("/senha")}}/'+arr[0]
-      }
-      //window.location.href = '{{route("senha","P")}}'
+     
     </script>
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

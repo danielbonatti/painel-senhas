@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\TriagemController;
 
+use App\Http\Controllers\PainelController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +25,8 @@ Route::get('/', function () {
 
 Route::get('/setores',[TriagemController::class,'index'])->name('setores');
 Route::get('/senha/{array?}',[TriagemController::class,'senha'])->name('senha');
+
+Route::get('/painel',[PainelController::class,'index'])->name('painel');
 
 //Route::resource('/unidades',TriagemController::class);
 //Route::get('/triagem',[TriagemController::class,'index'])->name('triagem');
