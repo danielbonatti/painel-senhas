@@ -27,12 +27,12 @@ DB_PASSWORD=
 composer install
 ```
 
-## 3 - Gere a chave da aplicação/Laravel
+## 4 - Gere a chave da aplicação/Laravel
 ```
 php artisan key:generate
 ```
 
-## 4 - Instalar o bootstrap
+## 5 - Instalar o bootstrap
 Executar os seguintes comandos dentro do diretório do projeto.
 ```
 composer require laravel/ui
@@ -42,10 +42,10 @@ npm run dev
 npm run production
 ```
 
-## 5 - Reiniciar a vmbox se necessário
+## 6 - Reiniciar a vmbox se necessário
 Se o Laravel exibir erros de conexão com o banco de dados tente reiniciar a maquina virtual, pois um período de ociosidade na vm pode cortar a conexão com a internet. 
 
-## 6 - Rodar a aplicação 
+## 7 - Rodar a aplicação 
 Executar o comando abaixo na raiz do diretório do projeto criado.
 ```
 php artisan serve
