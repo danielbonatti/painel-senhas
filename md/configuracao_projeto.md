@@ -32,6 +32,16 @@ composer install
 php artisan key:generate
 ```
 
+## 4 - Instalar o bootstrap
+Executar os seguintes comandos dentro do diretório do projeto.
+```
+composer require laravel/ui
+php artisan ui bootstrap
+npm install
+npm run dev
+npm run production
+```
+
 ## 4 - Reiniciar a vmbox se necessário
 Se o Laravel exibir erros de conexão com o banco de dados tente reiniciar a maquina virtual, pois um período de ociosidade na vm pode cortar a conexão com a internet. 
 
