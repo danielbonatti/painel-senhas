@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+
 class PainelController extends Controller
 {
     /**
@@ -14,6 +16,12 @@ class PainelController extends Controller
     public function index()
     {
         return view('painel.index');
+    }
+
+    public function chamada()
+    {
+        $select = DB::select("select prt_nomreg from chc_prt where prt_numero=1330748");
+		return response()->json($select);
     }
 
     /**

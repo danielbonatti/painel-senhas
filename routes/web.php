@@ -27,6 +27,7 @@ Route::get('/setores',[TriagemController::class,'index'])->name('setores');
 Route::get('/senha/{array?}',[TriagemController::class,'senha'])->name('senha');
 
 Route::get('/painel',[PainelController::class,'index'])->name('painel');
+Route::get('/chamada',[PainelController::class,'chamada'])->name('painel.chamada');
 
 //Route::resource('/unidades',TriagemController::class);
 //Route::get('/triagem',[TriagemController::class,'index'])->name('triagem');

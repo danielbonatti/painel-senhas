@@ -15,6 +15,9 @@
       }
     </style>
 
+    <!-- jQuery 2.2.3 -->
+    <script src="{{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+
     <title>Painel</title>
   </head>
   <body class="d-flex flex-column h-100">
@@ -31,7 +34,20 @@
 
     <!-- JavaScript -->
     <script>
-     
+      $(document).ready(function() {
+        alert('chamou');  
+        function preenche_dados() {
+              $.get("{{ route('painel.chamada') }}").done(function(wo_dados) {
+                  $('.table-itens > tbody').html('');
+                  $(wo_dados).each(function() {
+                      ws_linha = '<tr><td><h1>' + this.prt_nomreg + '</h1></td></tr>';
+                      $('.table-itens > tbody').append(ws_linha);
+                  });
+              });
+          }
+
+          preenche_dados()
+      })
     </script>
   </body>
 </html>
