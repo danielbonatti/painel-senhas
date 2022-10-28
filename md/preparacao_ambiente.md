@@ -23,3 +23,13 @@ sudo chmod -R 777 /etc/php/
 ```
 https://getcomposer.org/download/
 ```
+
+## 4 - Instalar o bootstrap
+Executar os seguintes comandos dentro do diretório do projeto após o create-project. 
+```
+composer require laravel/ui
+php artisan ui bootstrap
+npm install
+npm run dev
+npm run production
+```

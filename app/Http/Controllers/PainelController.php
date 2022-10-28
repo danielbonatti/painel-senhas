@@ -20,7 +20,20 @@ class PainelController extends Controller
 
     public function chamada()
     {
-        $select = DB::select("select prt_nomreg from chc_prt where prt_numero=1330748");
+        // Próxima senha
+        $select = DB::select("select sen_tipate,sen_codigo,'Guichê 01' sen_guiche from gsc_senhas order by nrecno desc limit 1");
+        // Trata o retorno
+        $senha = collect($select)->map(function($dado_linha) {	
+            $dado_linha->sen_tipate = ($dado_linha->sen_tipate == 'N') ? 'Normal' : 'Prioridade'; // Tipo do atendimento
+			return $dado_linha;
+		});
+		return response()->json($senha);
+    }
+
+    public function historico()
+    {
+        // Próxima senha
+        $select = DB::select("select sen_codigo,'Guichê 01' sen_guiche from gsc_senhas order by nrecno desc limit 5");
 		return response()->json($select);
     }
 

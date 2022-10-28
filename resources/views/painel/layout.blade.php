@@ -35,13 +35,25 @@
     <!-- JavaScript -->
     <script>
       $(document).ready(function() {
-        alert('chamou');  
         function preenche_dados() {
               $.get("{{ route('painel.chamada') }}").done(function(wo_dados) {
-                  $('.table-itens > tbody').html('');
+                  $('.senha > tbody').html('');
                   $(wo_dados).each(function() {
-                      ws_linha = '<tr><td><h1>' + this.prt_nomreg + '</h1></td></tr>';
-                      $('.table-itens > tbody').append(ws_linha);
+                      ws_linha = '<tr><td class="text-center">' +
+                      '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.sen_tipate + '</p>' +
+                      '<p style="font-size: 90px; font-weight: 1000;">' + this.sen_codigo + '</p>' +
+                      '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.sen_guiche + '</p></td></tr>';
+                      $('.senha > tbody').append(ws_linha);
+                  });
+              });
+
+              $.get("{{ route('painel.histor') }}").done(function(wo_dados) {
+                  $('.histor').html('');
+                  $(wo_dados).each(function() {
+                      ws_linha = '<tr><td class="text-left">' +
+                      '<p class="text-dark" style="font-size: 40px; font-weight: 1000;">' + this.sen_codigo + '</p>' +
+                      '<p class="text-muted" style="font-size: 20px; font-weight: 1000;">' + this.sen_guiche + '</p></td></tr>';
+                      $('.histor').append(ws_linha);
                   });
               });
           }
