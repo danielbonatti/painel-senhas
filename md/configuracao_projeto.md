@@ -12,7 +12,7 @@ git clone https://github.com/danielbonatti/painel-senhas.git
 ```
 
 ## 2 - Editar .env
-Altere o o arquivo .env, mas se o projeto foi clonado do repositório github copie/duplique o arquivo .env.example para .env e em seguida altere as credencias para conexão com o banco de dados. O arquivo .env fica na raiz da estrutura de pastas. 
+Altere o o arquivo .env, mas se o projeto foi clonado do repositório github copie/duplique o arquivo .env.example para .env (cp .env.example .env) e em seguida altere as credencias para conexão com o banco de dados. O arquivo .env fica na raiz da estrutura de pastas. 
 ```
 DB_CONNECTION=mysql
 DB_HOST=
@@ -32,10 +32,25 @@ composer install
 php artisan key:generate
 ```
 
-## 5 - Reiniciar a vmbox se necessário
+## 5 – Inserir registro(s) na tabela de setores
+```
+sudo mysql -u root -p
+
+use painel_db;
+insert into setores (name) values ('ALA B'),('C. CIRUGICO'),('PEDIATRIA'),('CLIN. MEDICA');
+
+exit;
+```
+
+## 6 - Criar a(s) tabela(s) no banco de dados
+```
+php artisan migrate
+```
+
+## 7 - Reiniciar a vmbox se necessário
 Se o Laravel exibir erros de conexão com o banco de dados tente reiniciar a maquina virtual, pois um período de ociosidade na vm pode cortar a conexão com a internet. 
 
-## 6 - Rodar a aplicação 
+## 8 - Rodar a aplicação 
 Executar o comando abaixo na raiz do diretório do projeto criado.
 ```
 php artisan serve

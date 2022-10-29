@@ -19,12 +19,30 @@ sudo apt install php7.4 php7.4-mysql php7.4-curl php7.4-zip php7.4-intl php7.4-x
 sudo chmod -R 777 /etc/php/ 
 ```
 
-## 3 - Instalação do composer
+## 3 – Instalar MySQL 5.7 e criar banco de dados
+```
+sudo apt install mariadb-server
+sudo service mysql start
+sudo mysql_secure_installation
+```
+Acessar o mysql:
+```
+sudo mysql -u root -p
+
+CREATE DATABASE painel_db;
+CREATE USER 'painel_us'@'%' IDENTIFIED BY '';
+GRANT ALL PRIVILEGES ON painel_db.* TO 'painel_us'@'%' IDENTIFIED BY '123456';
+FLUSH PRIVILEGES;
+
+exit;
+```
+
+## 4 - Instalação do composer
 ```
 https://getcomposer.org/download/
 ```
 
-## 4 - Instalar o bootstrap
+## 5 - Instalar o bootstrap
 Executar os seguintes comandos dentro do diretório do projeto após o create-project. 
 ```
 composer require laravel/ui
