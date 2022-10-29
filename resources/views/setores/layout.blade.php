@@ -18,12 +18,10 @@
     <title>Setores</title>
   </head>
   <body class="d-flex flex-column h-100">
-
-    <main role="main" class="flex-shrink-0">
-      <div class="container">
-        @yield('content')
-      </div>
-    </main>
+    
+    <div class="container">
+      @yield('content')
+    </div>
     
     <footer class="footer mt-auto py-3">
       <div class="container-fluid">

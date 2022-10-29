@@ -50,9 +50,9 @@
               $.get("{{ route('painel.histor') }}").done(function(wo_dados) {
                   $('.histor').html('');
                   $(wo_dados).each(function() {
-                      ws_linha = '<tr><td class="text-left">' +
+                      ws_linha = '<tr><td>' +
                       '<p class="text-dark" style="font-size: 40px; font-weight: 1000;">' + this.sen_codigo + '</p>' +
-                      '<p class="text-muted" style="font-size: 20px; font-weight: 1000;">' + this.sen_guiche + '</p></td></tr>';
+                      '<p class="text-muted" style="font-size: 18px; font-weight: 1000;">' + this.sen_guiche + '</p></td></tr>';
                       $('.histor').append(ws_linha);
                   });
               });

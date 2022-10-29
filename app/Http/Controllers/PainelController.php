@@ -33,7 +33,7 @@ class PainelController extends Controller
     public function historico()
     {
         // Próxima senha
-        $select = DB::select("select sen_codigo,'Guichê 01' sen_guiche from gsc_senhas order by nrecno desc limit 5");
+        $select = DB::select("select sen_codigo,'Guichê 01' sen_guiche from gsc_senhas order by nrecno desc limit 3");
 		return response()->json($select);
     }
 

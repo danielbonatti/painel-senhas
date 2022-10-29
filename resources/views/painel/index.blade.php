@@ -6,7 +6,7 @@
                 <tbody></tbody>
             </table>
         </div>
-        <div class="col-md-3 bg-info pt-3">
+        <div class="col-md-3 pt-3 bg-info">
             <div class="text-center"><h3>Histórico</h3></div>
             <table class="histor w-100">
                 <tbody></tbody>
