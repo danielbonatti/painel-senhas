@@ -11,9 +11,9 @@
                     <div class="col-md-6 mt-1">
                         <div class="card text-center">
                             <div class="card-body">
-                                <h5 class="card-title">{{$setor->name}}</h5>
-                                <a href="{{route('senha',['pri' => 'N','set' => $setor->id])}}" class="btn btn-primary">Normal</a>
-                                <a href="{{route('senha',['pri' => 'P','set' => $setor->id])}}" class="btn btn-danger">Prioridade</a> 
+                                <h5 class="card-title">{{$setor->espsim}}</h5>
+                                <a href="{{route('senha',['pri' => 'N','set' => $setor->codigo])}}" class="btn btn-primary">Normal</a>
+                                <a href="{{route('senha',['pri' => 'P','set' => $setor->codigo])}}" class="btn btn-danger">Prioridade</a> 
                             </div>
                         </div>
                     </div>

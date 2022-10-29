@@ -15,7 +15,8 @@ class CreateSetoresTable extends Migration
     {
         Schema::create('setores', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('codigo',6);
+            $table->string('espsim');
             $table->timestamps();
         });
     }

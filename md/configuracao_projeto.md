@@ -37,7 +37,8 @@ php artisan key:generate
 sudo mysql -u root -p
 
 use painel_db;
-insert into setores (name) values ('ALA B'),('C. CIRUGICO'),('PEDIATRIA'),('CLIN. MEDICA');
+
+insert into setores (codigo,espsim) values ('600148','C. CIRURGICO'),('600385','PEDIATRIA'),('600423','CLIN. MEDICA'),('600431','ALA B');
 
 exit;
 ```

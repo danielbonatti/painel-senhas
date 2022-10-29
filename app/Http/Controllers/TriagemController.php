@@ -27,25 +27,24 @@ class TriagemController extends Controller
     public function senha(Request $request)
     {
         // Retorna a sequência
-        $consul = DB::table('gsc_senhas')->whereRaw('sen_datini = "'.date('Y-m-d').'" and sen_tipate="'.$request->get('pri').'"')->count();
+        $consul = DB::table('senhas')->whereRaw('date(datemi) = "'.date('Y-m-d').'" and tipate="'.$request->get('pri').'"')->count();
         // Monta a senha
         $consul = $request->get('pri').str_pad($consul+1,4,0,STR_PAD_LEFT);
         // Busca a descrição do setor
-        $setor = DB::table('chc_pcc')->where('pcc_codigo',$request->get('set'))->first();
-        $setor =  $setor->pcc_espsim;
+        $setor = DB::table('setores')->where('codigo',$request->get('set'))->first();
+        $setor =  $setor->espsim;
         // Registra a emissão da senha
-        $insert = DB::table('gsc_senhas')->insertGetId([
-            'sen_codigo' => $consul,
-            'sen_datini' => date('Y-m-d'),
-            'sen_horini' => date('H:i'),
-            'sen_codset' => $request->get('set'),
-            'sen_atiset' => '01',
-            'sen_tipate' => $request->get('pri')
+        $insert = DB::table('senhas')->insertGetId([
+            'codigo' => $consul,
+            'datemi' => date('Y-m-d H:i:s'),
+            'codset' => $request->get('set'),
+            'atiset' => '01',
+            'tipate' => $request->get('pri')
         ]);
         // Tipo de atendimento
         $prior = ($request->get('pri') == 'N') ? 'Normal' : 'Prioridade';
         // Imprime a senha
-        return view('senha.index')->with(['senha' => $consul,'tipate' => $prior,'setor' => $setor,'data' => date('d/m/Y'),'hora' => date('H:i')]);
+        return view('senha.index')->with(['senha' => $consul,'tipate' => $prior,'setor' => $setor,'data' => date('d/m/Y'),'hora' => date('H:i:s')]);
 
         //URL::to("js/script.js");
         //return asset('js/script.js');

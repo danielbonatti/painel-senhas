@@ -6,3 +6,6 @@ https://github.com/danielbonatti/painel-senhas/blob/main/md/configuracao_projeto
 
 ## Habilitar git no Ubuntu
 https://github.com/danielbonatti/painel-senhas/blob/main/md/habilitar_git_ubuntu.md
+
+## Comandos artisan
+https://github.com/danielbonatti/painel-senhas/blob/main/md/comandos_artisan.md
