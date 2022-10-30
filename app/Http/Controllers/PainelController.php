@@ -21,14 +21,19 @@ class PainelController extends Controller
     public function chamada()
     {
         // Próxima senha
-        $select = DB::select('select tipate,codigo,"Guichê 01" guiche from senhas where date(datemi)='.date('Y-m-d').' and datcha is not null and datexi is null order by tipate desc,datemi limit 1');
+        $select = DB::select('select tipate,codigo,"Guichê 01" guiche,id from senhas where date(datemi)=curdate() and datcha is not null and datexi is null order by tipate desc,datemi limit 1');
+        // Atualiza para exibido
+        if(!is_null($select)){
+            $alter = DB::table('senhas')
+                ->where('id', $select[0]->id)
+                ->update(['datexi' => date('Y-m-d H:i:s')]);
+        }
         // Trata o retorno
         $senha = collect($select)->map(function($dado_linha) {	
             $dado_linha->tipate = ($dado_linha->tipate == 'N') ? 'Normal' : 'Prioridade'; // Tipo do atendimento
 			return $dado_linha;
 		});
-        return count($senha);
-		//return response()->json($senha);
+        return response()->json($senha);
     }
 
     public function historico()

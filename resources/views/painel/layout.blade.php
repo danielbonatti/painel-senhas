@@ -39,7 +39,7 @@
               $.get("{{ route('painel.chamada') }}").done(function(wo_dados) {
                   $('.senha > tbody').html('');
                   $(wo_dados).each(function() {
-                      ws_linha = '<tr><td class="text-center">' +
+                       ws_linha = '<tr><td class="text-center">' +
                       '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.tipate + '</p>' +
                       '<p style="font-size: 90px; font-weight: 1000;">' + this.codigo + '</p>' +
                       '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.guiche + '</p></td></tr>';
