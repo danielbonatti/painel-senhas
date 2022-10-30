@@ -31,7 +31,7 @@ Route::get('/senha/{array?}',[SenhaController::class,'emissao'])->name('senha.em
 
 Route::get('/painel',[PainelController::class,'index'])->name('painel');
 Route::get('/chamada',[PainelController::class,'chamada'])->name('painel.chamada');
-Route::get('/historico',[PainelController::class,'historico'])->name('painel.histor');
+Route::get('/historico/{id}',[PainelController::class,'historico'])->name('painel.histor');
 
 //Route::resource('/unidades',SetorController::class);
 //Route::get('/triagem',[SetorController::class,'index'])->name('triagem');

@@ -35,7 +35,7 @@
     <!-- JavaScript -->
     <script>
       $(document).ready(function() {
-        function preenche_dados() {
+        function exib_senh() {
               $.get("{{ route('painel.chamada') }}").done(function(wo_dados) {
                   $('.senha > tbody').html('');
                   $(wo_dados).each(function() {
@@ -44,10 +44,13 @@
                       '<p style="font-size: 90px; font-weight: 1000;">' + this.codigo + '</p>' +
                       '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.guiche + '</p></td></tr>';
                       $('.senha > tbody').append(ws_linha);
+                      exib_hist(this.id);
                   });
               });
+          }
 
-              $.get("{{ route('painel.histor') }}").done(function(wo_dados) {
+          function exib_hist(id) {
+              $.get("{{ URL::to('/historico') }}/"+id).done(function(wo_dados) {
                   $('.histor').html('');
                   $(wo_dados).each(function() {
                       ws_linha = '<tr><td>' +
@@ -58,10 +61,10 @@
               });
           }
 
-          preenche_dados()
+          exib_senh();
 
           setInterval(function(){
-            preenche_dados()
+            exib_senh();
           }, 5000);
       })
     </script>

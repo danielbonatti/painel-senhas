@@ -36,10 +36,9 @@ class PainelController extends Controller
         return response()->json($senha);
     }
 
-    public function historico()
+    public function historico(Request $request)
     {
-        // Próxima senha
-        $select = DB::select("select codigo,'Guichê 01' guiche from senhas where datexi is not null order by datexi desc limit 5");
+        $select = DB::select("select codigo,'Guichê 01' guiche from senhas where datexi is not null and id<>$request->id order by datexi desc limit 5");
 		return response()->json($select);
     }
 
