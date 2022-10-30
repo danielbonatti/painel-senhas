@@ -8,7 +8,7 @@ use Illuminate\Http\Response;
 
 use DB;
 
-class TriagemController extends Controller
+class SetorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,32 +22,6 @@ class TriagemController extends Controller
 
         /*$consul = DB::table('chc_pcc')->whereIn('pcc_codigo',[600431,600423,600385,600148])->get();
         return view('setores.index')->with('setores',$consul);*/
-    }
-
-    public function senha(Request $request)
-    {
-        // Retorna a sequência
-        $consul = DB::table('senhas')->whereRaw('date(datemi) = "'.date('Y-m-d').'" and tipate="'.$request->get('pri').'"')->count();
-        // Monta a senha
-        $consul = $request->get('pri').str_pad($consul+1,4,0,STR_PAD_LEFT);
-        // Busca a descrição do setor
-        $setor = DB::table('setores')->where('codigo',$request->get('set'))->first();
-        $setor =  $setor->espsim;
-        // Registra a emissão da senha
-        $insert = DB::table('senhas')->insertGetId([
-            'codigo' => $consul,
-            'datemi' => date('Y-m-d H:i:s'),
-            'codset' => $request->get('set'),
-            'atiset' => '01',
-            'tipate' => $request->get('pri')
-        ]);
-        // Tipo de atendimento
-        $prior = ($request->get('pri') == 'N') ? 'Normal' : 'Prioridade';
-        // Imprime a senha
-        return view('senha.index')->with(['senha' => $consul,'tipate' => $prior,'setor' => $setor,'data' => date('d/m/Y'),'hora' => date('H:i:s')]);
-
-        //URL::to("js/script.js");
-        //return asset('js/script.js');
     }
 
     /**

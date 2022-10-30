@@ -35,7 +35,7 @@
       function Imprime(arr){
         window.location.href = '{{URL::to("/senha")}}/'+arr[0]
       }
-      //window.location.href = '{{route("senha","P")}}'
+      //window.location.href = '{{route("painel","P")}}'
     </script>
   </body>
 </html>

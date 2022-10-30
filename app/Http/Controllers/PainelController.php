@@ -21,19 +21,20 @@ class PainelController extends Controller
     public function chamada()
     {
         // Próxima senha
-        $select = DB::select("select sen_tipate,sen_codigo,'Guichê 01' sen_guiche from gsc_senhas order by nrecno desc limit 1");
+        $select = DB::select('select tipate,codigo,"Guichê 01" guiche from senhas where date(datemi)='.date('Y-m-d').' and datcha is not null and datexi is null order by tipate desc,datemi limit 1');
         // Trata o retorno
         $senha = collect($select)->map(function($dado_linha) {	
-            $dado_linha->sen_tipate = ($dado_linha->sen_tipate == 'N') ? 'Normal' : 'Prioridade'; // Tipo do atendimento
+            $dado_linha->tipate = ($dado_linha->tipate == 'N') ? 'Normal' : 'Prioridade'; // Tipo do atendimento
 			return $dado_linha;
 		});
-		return response()->json($senha);
+        return count($senha);
+		//return response()->json($senha);
     }
 
     public function historico()
     {
         // Próxima senha
-        $select = DB::select("select sen_codigo,'Guichê 01' sen_guiche from gsc_senhas order by nrecno desc limit 3");
+        $select = DB::select("select codigo,'Guichê 01' guiche from senhas where datexi is not null order by datexi desc limit 5");
 		return response()->json($select);
     }
 

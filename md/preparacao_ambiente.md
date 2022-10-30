@@ -31,7 +31,7 @@ sudo mysql -u root -p
 
 CREATE DATABASE painel_db;
 CREATE USER 'painel_us'@'%' IDENTIFIED BY '';
-GRANT ALL PRIVILEGES ON painel_db.* TO 'painel_us'@'%' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON painel_db.* TO 'painel_us'@'%' IDENTIFIED BY '';
 FLUSH PRIVILEGES;
 
 exit;

@@ -40,9 +40,9 @@
                   $('.senha > tbody').html('');
                   $(wo_dados).each(function() {
                       ws_linha = '<tr><td class="text-center">' +
-                      '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.sen_tipate + '</p>' +
-                      '<p style="font-size: 90px; font-weight: 1000;">' + this.sen_codigo + '</p>' +
-                      '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.sen_guiche + '</p></td></tr>';
+                      '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.tipate + '</p>' +
+                      '<p style="font-size: 90px; font-weight: 1000;">' + this.codigo + '</p>' +
+                      '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.guiche + '</p></td></tr>';
                       $('.senha > tbody').append(ws_linha);
                   });
               });
@@ -51,14 +51,18 @@
                   $('.histor').html('');
                   $(wo_dados).each(function() {
                       ws_linha = '<tr><td>' +
-                      '<p class="text-dark" style="font-size: 40px; font-weight: 1000;">' + this.sen_codigo + '</p>' +
-                      '<p class="text-muted" style="font-size: 18px; font-weight: 1000;">' + this.sen_guiche + '</p></td></tr>';
+                      '<p class="text-dark" style="font-size: 40px; font-weight: 1000;">' + this.codigo + '</p>' +
+                      '<p class="text-muted" style="font-size: 18px; font-weight: 1000;">' + this.guiche + '</p></td></tr>';
                       $('.histor').append(ws_linha);
                   });
               });
           }
 
           preenche_dados()
+
+          setInterval(function(){
+            preenche_dados()
+          }, 5000);
       })
     </script>
   </body>

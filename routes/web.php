@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\TriagemController;
+use App\Http\Controllers\SetorController;
+
+use App\Http\Controllers\SenhaController;
 
 use App\Http\Controllers\PainelController;
 
@@ -23,13 +25,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/setores',[TriagemController::class,'index'])->name('setores');
-Route::get('/senha/{array?}',[TriagemController::class,'senha'])->name('senha');
+Route::get('/setores',[SetorController::class,'index'])->name('setores');
+
+Route::get('/senha/{array?}',[SenhaController::class,'emissao'])->name('senha.emissao');
 
 Route::get('/painel',[PainelController::class,'index'])->name('painel');
 Route::get('/chamada',[PainelController::class,'chamada'])->name('painel.chamada');
 Route::get('/historico',[PainelController::class,'historico'])->name('painel.histor');
 
-//Route::resource('/unidades',TriagemController::class);
-//Route::get('/triagem',[TriagemController::class,'index'])->name('triagem');
-//Route::get('/unidades','App\Http\Controllers\TriagemController@unidades')->name('triagem.unidades');
+//Route::resource('/unidades',SetorController::class);
+//Route::get('/triagem',[SetorController::class,'index'])->name('triagem');
+//Route::get('/unidades','App\Http\Controllers\SetorController@unidades')->name('triagem.unidades');
