@@ -35,6 +35,10 @@
     <!-- JavaScript -->
     <script>
       $(document).ready(function() {
+        // Som de alerta => soundbible.com
+        var audio = new Audio("{{ asset('audio/bells.mp3') }}");
+
+        // Chama a próxima senha
         function exib_senh() {
               $.get("{{ route('painel.chamada') }}").done(function(wo_dados) {
                   $('.senha > tbody').html('');
@@ -44,11 +48,19 @@
                       '<p style="font-size: 90px; font-weight: 1000;">' + this.codigo + '</p>' +
                       '<p class="text-muted" style="font-size: 60px; font-weight: 1000;">' + this.guiche + '</p></td></tr>';
                       $('.senha > tbody').append(ws_linha);
+                      
+                      // Toca som de alerta 
+                      audio.play();
+                      $('.senha > tbody').fadeOut(400);
+                      $('.senha > tbody').fadeIn(400);
+                      
+                      // Atualiza o histórico
                       exib_hist(this.id);
                   });
               });
           }
 
+          // Atualiza o histórico
           function exib_hist(id) {
               $.get("{{ URL::to('/historico') }}/"+id).done(function(wo_dados) {
                   $('.histor').html('');

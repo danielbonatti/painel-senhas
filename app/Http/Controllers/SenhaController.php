@@ -15,6 +15,7 @@ class SenhaController extends Controller
      */
     public function emissao(Request $request)
     {
+        date_default_timezone_set('America/Sao_Paulo');
         // Retorna a sequência
         $consul = DB::table('senhas')->whereRaw('date(datemi) = "'.date('Y-m-d').'" and tipate="'.$request->get('pri').'"')->count();
         // Monta a senha
@@ -41,6 +42,7 @@ class SenhaController extends Controller
 
     public function proxima()
     {
+        date_default_timezone_set('America/Sao_Paulo');
         // Procura a próxima senha
         $senha = DB::table('senhas')
             ->whereDate('datemi','=',date('Y-m-d'))

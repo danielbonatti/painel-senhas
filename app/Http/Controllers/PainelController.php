@@ -20,6 +20,7 @@ class PainelController extends Controller
 
     public function chamada()
     {
+        date_default_timezone_set('America/Sao_Paulo');
         // Próxima senha
         $select = DB::select('select tipate,codigo,"Guichê 01" guiche,id from senhas where date(datemi)=curdate() and datcha is not null and datexi is null order by tipate desc,datemi limit 1');
         // Atualiza para exibido
